@@ -1,0 +1,50 @@
+group 'com.DecentRealized.custom_libp2p'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.3.0'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    namespace 'com.DecentRealized.custom_libp2p'
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 21
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+task nativeLibsToJar(type: Jar, description: 'create a jar archive of the native libs') {
+    destinationDirectory = file("$buildDir/native-libs")
+    baseName 'native-libs'
+    from fileTree(dir: 'libs', include: '**/*.so')
+    into 'lib/'
+}
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn(nativeLibsToJar)
+}
+
+dependencies {
+    api fileTree(dir: "$buildDir/native-libs", include: 'native-libs.jar')
+}

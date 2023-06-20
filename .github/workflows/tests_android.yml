@@ -1,0 +1,56 @@
+name: Integration Tests Android
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  e2e:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle
+      - uses: actions/cache@v3
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '17'
+      - uses: android-actions/setup-android@v2
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.x'
+          channel: 'stable'
+      - run: flutter pub get
+      - if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          avd-name: PhoneAPI30
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "Generated AVD snapshot for caching."
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          avd-name: PhoneAPI30
+          arch: x86_64
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: "cd example && flutter test integration_test/app_test.dart"
