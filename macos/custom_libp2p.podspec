@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   library for use Custom LibP2P.
                        DESC
   s.homepage         = 'https://github.com/DecentRealized/flutter-custom-libp2p'
-  s.license          = { :file => '../LICENSE' }
-  s.author           = { '' => '' }
+  #s.license          = { :file => '../LICENSE' }
+  s.author           = { 'DecentRealized' => 'decentrealized2@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
   s.dependency 'FlutterMacOS'

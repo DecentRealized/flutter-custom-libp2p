@@ -5,15 +5,15 @@
 shared_lib = File.join(__dir__, "libcustom_libp2_bridge.a").gsub(/ /, '\ ')
 
 Pod::Spec.new do |s|
-  s.name             = 'custom_libp2'
+  s.name             = 'custom_libp2p'
   s.version          = '0.6.0'
   s.summary          = 'library for use Custom LibP2P.'
   s.description      = <<-DESC
 library for use Custom LibP2P.
                        DESC
   s.homepage         = 'https://github.com/DecentRealized/flutter-custom-libp2p'
-  s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Gerson Alexander Pardo Gamez' => 'jeral17@gmail.com' }
+  #s.license          = { :file => '../LICENSE' }
+  s.author           = { 'DecentRealized' => 'decentrealized2@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files =  'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'

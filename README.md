@@ -1,16 +1,16 @@
 # Custom LibP2P
 
-Library for use LibP2P with support for android, ios, macos, windows, linux and web
+Flutter plugin (macos, web, linux, windows, android, ios) for custom-libp2p-mobile.
 
-[![Integration Tests Android](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_android.yml/badge.svg)](https://github.com/jerson/flutter-custom-libp2p/actions/workflows/tests_android.yml)
+[![Integration Tests Android](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_android.yml/badge.svg)](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_android.yml)
 
-[![Integration Tests Linux](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_linux.yml/badge.svg)](https://github.com/jerson/flutter-custom-libp2p/actions/workflows/tests_linux.yml)
+[![Integration Tests Linux](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_linux.yml/badge.svg)](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_linux.yml)
 
-[![Integration Tests Windows](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_windows.yml/badge.svg)](https://github.com/jerson/flutter-custom-libp2p/actions/workflows/tests_windows.yml)
+[![Integration Tests Windows](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_windows.yml/badge.svg)](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_windows.yml)
 
-[![Integration Tests iOS](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_ios.yml/badge.svg)](https://github.com/jerson/flutter-custom-libp2p/actions/workflows/tests_ios.yml)
+[![Integration Tests iOS](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_ios.yml/badge.svg)](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_ios.yml)
 
-[![Integration Tests macOS](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_macos.yml/badge.svg)](https://github.com/jerson/flutter-custom-libp2p/actions/workflows/tests_macos.yml)
+[![Integration Tests macOS](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_macos.yml/badge.svg)](https://github.com/DecentRealized/flutter-custom-libp2p/actions/workflows/tests_macos.yml)
 ## Contents
  
 - [Custom LibP2P](#custom-libp2p)
