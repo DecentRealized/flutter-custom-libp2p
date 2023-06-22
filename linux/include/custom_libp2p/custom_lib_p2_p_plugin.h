@@ -1,5 +1,5 @@
-#ifndef FLUTTER_PLUGIN_CUSTOM_LIBP2P_PLUGIN_H_
-#define FLUTTER_PLUGIN_CUSTOM_LIBP2P_PLUGIN_H_
+#ifndef FLUTTER_PLUGIN_CUSTOM_LIB_P2_P_PLUGIN_H_
+#define FLUTTER_PLUGIN_CUSTOM_LIB_P2_P_PLUGIN_H_
 
 #include <flutter_linux/flutter_linux.h>
 
@@ -23,4 +23,4 @@ FLUTTER_PLUGIN_EXPORT void custom_lib_p2_p_plugin_register_with_registrar(
 
 G_END_DECLS
 
-#endif  // FLUTTER_PLUGIN_CUSTOM_LIBP2P_PLUGIN_H_
+#endif  // FLUTTER_PLUGIN_CUSTOM_LIB_P2_P_PLUGIN_H_

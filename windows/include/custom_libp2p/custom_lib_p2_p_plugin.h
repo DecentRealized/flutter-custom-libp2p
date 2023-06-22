@@ -1,5 +1,5 @@
-#ifndef FLUTTER_PLUGIN_CUSTOM_LIBP2P_PLUGIN_H_
-#define FLUTTER_PLUGIN_CUSTOM_LIBP2P_PLUGIN_H_
+#ifndef FLUTTER_PLUGIN_CUSTOM_LIB_P2_P_PLUGIN_H_
+#define FLUTTER_PLUGIN_CUSTOM_LIB_P2_P_PLUGIN_H_
 
 #include <flutter_plugin_registrar.h>
 
@@ -20,4 +20,4 @@ FLUTTER_PLUGIN_EXPORT void CustomLibP2PPluginRegisterWithRegistrar(
 }  // extern "C"
 #endif
 
-#endif  // FLUTTER_PLUGIN_CUSTOM_LIBP2P_PLUGIN_H_
+#endif  // FLUTTER_PLUGIN_CUSTOM_LIB_P2_P_PLUGIN_H_
