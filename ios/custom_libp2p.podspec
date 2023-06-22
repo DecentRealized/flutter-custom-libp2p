@@ -2,7 +2,7 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
 # Run `pod lib lint custom_libp2p.podspec' to validate before publishing.
 #
-shared_lib = File.join(__dir__, "libcustom_libp2_bridge.a").gsub(/ /, '\ ')
+shared_lib = File.join(__dir__, "custom_libp2_bridge.a").gsub(/ /, '\ ')
 
 Pod::Spec.new do |s|
   s.name             = 'custom_libp2p'
