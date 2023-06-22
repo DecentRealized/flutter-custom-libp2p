@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = custom_libp2p_example
+PRODUCT_NAME = flutter_custom_libp2p_example
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.DecentRealized.customLibP2PExample
+PRODUCT_BUNDLE_IDENTIFIER = com.DecentRealized.flutterCustomLibp2pExample
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2020 com.DecentRealized. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 com.DecentRealized. All rights reserved.

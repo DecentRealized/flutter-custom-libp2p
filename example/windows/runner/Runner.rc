@@ -90,11 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.DecentRealized" "\0"
-            VALUE "FileDescription", "Demonstrates how to use the custom_libp2p plugin." "\0"
+            VALUE "FileDescription", "flutter_custom_libp2p_example" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "custom_libp2p_example" "\0"
-            VALUE "OriginalFilename", "custom_libp2p_example.exe" "\0"
-            VALUE "ProductName", "custom_libp2p_example" "\0"
+            VALUE "InternalName", "flutter_custom_libp2p_example" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 com.DecentRealized. All rights reserved." "\0"
+            VALUE "OriginalFilename", "flutter_custom_libp2p_example.exe" "\0"
+            VALUE "ProductName", "flutter_custom_libp2p_example" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
 set(PROJECT_NAME "custom_libp2p")
 project(${PROJECT_NAME} LANGUAGES CXX)
 

@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-   <application
-        android:label="custom_libp2p_example"
+    <application
+        android:label="flutter_custom_libp2p_example"
+        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
