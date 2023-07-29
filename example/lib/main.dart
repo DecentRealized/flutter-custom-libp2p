@@ -1,5 +1,18 @@
-import 'package:custom_libp2p/custom_libp2p.dart';
 import 'package:flutter/material.dart';
+
+import './createKeyPairWidget.dart';
+import './createNodeWidget.dart';
+import './getDownloadStatusWidget.dart';
+import './getHelloMessageWidget.dart';
+import './getListenAddressesWidget.dart';
+import './getNodeIdWidget.dart';
+import './pauseDownloadWidget.dart';
+import './resumeDownloadWidget.dart';
+import './sendMessageWidget.dart';
+import './serveFileWidget.dart';
+import './stopDownloadWidget.dart';
+import './stopNodeWidget.dart';
+import './stopServingFileWidget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,19 +42,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _messageFromGo = "";
-  String _userName = "";
-
-  void _getHelloMessageFromGo() async {
-    setState(() {
-      _messageFromGo = "Loading...";
-    });
-    final _go_msg = await CustomLibP2P.getHelloMessage(_userName);
-    setState(() {
-      _messageFromGo = _go_msg;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,54 +49,31 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          key: Key('main-column'),
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              width: 250,
-              height: 36,
-              key: Key('username-box'),
-              child: TextField(
-                key: Key('username-text-field'),
-                decoration: new InputDecoration(hintText: 'Your Name'),
-                onChanged: (value) {
-                  setState(() {
-                    _userName = value;
-                  });
-                },
-                onSubmitted: (value) {
-                  setState(() {
-                    _userName = value;
-                  });
-                  _getHelloMessageFromGo();
-                },
-              ),
-            ),
-            SizedBox(height: 25),
-            ElevatedButton(
-                key: Key('submit-get-hello-message'),
-                onPressed: _getHelloMessageFromGo,
-                child: Text('Call Go Func!')),
-            SizedBox(height: 25),
-            Wrap(
-              key: Key('message-wrap'),
-              children: [
-                Text(
-                  'Message From Go: ',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                Text(
-                  key: Key('message-from-go'),
-                  '$_messageFromGo',
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
+      body: SingleChildScrollView(
+          child: Column(
+        children: [
+          GetHelloMessage(
+            title: "Get Hello Message",
+            key: Key("get-hello-message"),
+          ),
+          CreateKeyPair(title: "Create Key Pair"),
+          CreateNode(title: "Create Random Node"),
+          GetNodeId(title: "Get Node ID"),
+          GetListenAddresses(title: "Get Listen Addresses"),
+          StopNode(title: "Stop Node"),
+          // AllowNode(title: "Allow Node"),
+          // IsAllowedNode(title: "Is Allowed Node"),
+          // GetAllowedNodes(title: "Get Allowed Nodes"),
+          // DenyNode(title: "Deny Node"),
+          ServeFile(title: "Serve File"),
+          StopServingFile(title: "Stop Serving File"),
+          SendMessage(title: "Send Message"),
+          PauseDownload(title: "Pause Download"),
+          ResumeDownload(title: "Resume Download"),
+          StopDownload(title: "Stop Download"),
+          GetDownloadStatus(title: "Get Download Status")
+        ],
+      )),
     );
   }
 }
