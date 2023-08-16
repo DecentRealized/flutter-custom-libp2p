@@ -2,7 +2,7 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
 # Run `pod lib lint custom_libp2p.podspec' to validate before publishing.
 #
-shared_lib = File.join(__dir__, "custom_libp2p_bridge.a").gsub(/ /, '\ ')
+shared_lib = File.join(__dir__, "libcustom_libp2p_bridge.a").gsub(/ /, '\ ')
 
 Pod::Spec.new do |s|
   s.name             = 'custom_libp2p'
@@ -20,7 +20,7 @@ library for use Custom LibP2P.
   s.vendored_libraries  = '*.a'
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
-  s.xcconfig = { 'OTHER_LDFLAGS' => "-force_load '#{shared_lib}'"}
+  s.xcconfig = { 'OTHER_LDFLAGS' => "-force_load '#{shared_lib}' -lresolv"}
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
   s.pod_target_xcconfig = {  'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
