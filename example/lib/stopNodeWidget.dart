@@ -38,7 +38,7 @@ class _StopNode extends State<StopNode> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Column(
-                key: Key('main-column'),
+                key: Key('main-column-stop-node'),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 12),
@@ -48,14 +48,14 @@ class _StopNode extends State<StopNode> {
                       child: Text('Call Go Func!')),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap-node-id'),
+                    key: Key('message-wrap-stop-node'),
                     children: [
                       Text(
                         'Node ID: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-stop-node'),
                         '$_msgFromGo',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),

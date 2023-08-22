@@ -53,7 +53,7 @@ class _StopDownload extends State<StopDownload> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Column(
-                key: Key('main-column'),
+                key: Key('main-column-stop-download'),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 12),
@@ -86,14 +86,14 @@ class _StopDownload extends State<StopDownload> {
                       child: Text('Call Go Func!')),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap'),
+                    key: Key('message-wrap-stop-download'),
                     children: [
                       Text(
                         'Message From Go: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-stop-download'),
                         '$_messageFromGo',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),

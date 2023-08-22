@@ -12,7 +12,7 @@ import 'package:path/path.dart' as Path;
 
 class Binding {
   static final String _callFuncName = 'CustomLibP2PBridgeCall';
-  static final String _libraryName = 'custom_libp2p_bridge';
+  static final String _libraryName = 'libcustom_libp2p_bridge';
   static final String _packageName = 'custom_libp2p';
   static final Binding _singleton = Binding._internal();
 

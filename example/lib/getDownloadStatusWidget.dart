@@ -53,7 +53,7 @@ class _GetDownloadStatus extends State<GetDownloadStatus> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Column(
-                key: Key('main-column'),
+                key: Key('main-column-get-download-status'),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 12),
@@ -86,14 +86,14 @@ class _GetDownloadStatus extends State<GetDownloadStatus> {
                       child: Text('Call Go Func!')),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap'),
+                    key: Key('message-wrap-get-download-status'),
                     children: [
                       Text(
                         'Message From Go: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-get-download-status'),
                         '$_messageFromGo',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),

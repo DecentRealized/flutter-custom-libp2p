@@ -42,7 +42,7 @@ class _GetHelloMessageState extends State<GetHelloMessage> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Column(
-                key: Key('main-column'),
+                key: Key('main-column-get-hello-message'),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 12),
@@ -73,14 +73,14 @@ class _GetHelloMessageState extends State<GetHelloMessage> {
                       child: Text('Call Go Func!')),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap'),
+                    key: Key('message-wrap-get-hello-message'),
                     children: [
                       Text(
                         'Message From Go: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-get-hello-message'),
                         '$_messageFromGo',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),

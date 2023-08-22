@@ -53,7 +53,7 @@ class _ResumeDownload extends State<ResumeDownload> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Column(
-                key: Key('main-column'),
+                key: Key('main-column-resume-download'),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 12),
@@ -86,14 +86,14 @@ class _ResumeDownload extends State<ResumeDownload> {
                       child: Text('Call Go Func!')),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap'),
+                    key: Key('message-wrap-resume-download'),
                     children: [
                       Text(
                         'Message From Go: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-resume-download'),
                         '$_messageFromGo',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),

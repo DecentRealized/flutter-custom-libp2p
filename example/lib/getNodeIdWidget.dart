@@ -38,7 +38,7 @@ class _GetNodeId extends State<GetNodeId> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Column(
-                key: Key('main-column'),
+                key: Key('main-column-get-node-id'),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 12),
@@ -48,14 +48,14 @@ class _GetNodeId extends State<GetNodeId> {
                       child: Text('Call Go Func!')),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap-node-id'),
+                    key: Key('message-wrap-get-node-id'),
                     children: [
                       Text(
                         'Node ID: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-get-node-id'),
                         '$nodeId',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),

@@ -11,10 +11,10 @@ void main() {
     var input =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras orci ex, pellentesque quis lobortis in";
 
-    var dyScroll = 200.0;
+    var dyScroll = 120.0;
     final list = find.byType(Scrollable).first;
 
-    final parent = find.byKey(ValueKey("main-column"));
+    final parent = find.byKey(ValueKey("main-column-get-hello-message"));
 
     group('Basic', () {
       testWidgets('Get Hello Message Test', (WidgetTester tester) async {
@@ -34,6 +34,7 @@ void main() {
                 of: container,
                 matching: find.byKey(ValueKey('username-text-field'))),
             input);
+        await tester.pumpAndSettle();
 
         await tester.tap(
           find.descendant(
@@ -43,13 +44,15 @@ void main() {
         await tester.pumpAndSettle();
 
         var resultContainer = find.descendant(
-            of: parent, matching: find.byKey(ValueKey('message-wrap')));
+            of: parent,
+            matching: find.byKey(ValueKey('message-wrap-get-hello-message')));
         var resultSelector = find.descendant(
             of: resultContainer,
-            matching: find.byKey(ValueKey('message-from-go')));
+            matching:
+                find.byKey(ValueKey('message-from-go-get-hello-message')));
 
         await expectLater(resultSelector, findsWidgets);
-        var result = resultSelector.evaluate().single.widget as Text;
+        var result = resultSelector.evaluate().single.widget as SelectableText;
         expect(result.data == 'Hello $input this is a dummy function!', true);
       });
     });

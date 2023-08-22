@@ -38,7 +38,7 @@ class _GetListenAddresses extends State<GetListenAddresses> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Column(
-                key: Key('main-column'),
+                key: Key('main-column-get-listen-addresses'),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 12),
@@ -48,14 +48,14 @@ class _GetListenAddresses extends State<GetListenAddresses> {
                       child: Text('Call Go Func!')),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap-node-id'),
+                    key: Key('message-wrap-get-listen-addresses'),
                     children: [
                       Text(
                         'Node ID: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-get-listen-addresses'),
                         '$nodeAddresses',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),

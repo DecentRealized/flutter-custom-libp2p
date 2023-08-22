@@ -40,7 +40,7 @@ class _CreateKeyPair extends State<CreateKeyPair> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Column(
-                key: Key('main-column'),
+                key: Key('main-column-create-key-pair'),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 12),
@@ -50,14 +50,14 @@ class _CreateKeyPair extends State<CreateKeyPair> {
                       child: Text('Call Go Func!')),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap-public'),
+                    key: Key('message-wrap-create-key-pair-public'),
                     children: [
                       Text(
                         'Public Key: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-create-key-pair-public'),
                         '$publicKey',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
@@ -65,14 +65,14 @@ class _CreateKeyPair extends State<CreateKeyPair> {
                   ),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap-private'),
+                    key: Key('message-wrap-create-key-pair-private'),
                     children: [
                       Text(
                         'Private Key: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-create-key-pair-private'),
                         '$privateKey',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),

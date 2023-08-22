@@ -16,7 +16,7 @@ target_include_directories(${PLUGIN_NAME} INTERFACE
   "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_link_libraries(${PLUGIN_NAME} PRIVATE flutter)
 
-set(LIBCUSTOM_LIBP2P_BRIDGE "custom_libp2p_bridge.so")
+set(LIBCUSTOM_LIBP2P_BRIDGE "libcustom_libp2p_bridge.so")
 set(LIBCUSTOM_LIBP2P_BRIDGE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/shared/${CMAKE_SYSTEM_PROCESSOR}/${LIBCUSTOM_LIBP2P_BRIDGE}")
 
 # List of absolute paths to libraries that should be bundled with the plugin

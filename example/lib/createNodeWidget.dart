@@ -39,7 +39,7 @@ class _CreateNode extends State<CreateNode> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Column(
-                key: Key('main-column'),
+                key: Key('main-column-create-node'),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 12),
@@ -65,14 +65,14 @@ class _CreateNode extends State<CreateNode> {
                       child: Text('Call Go Func!')),
                   SizedBox(height: 12),
                   Wrap(
-                    key: Key('message-wrap-success'),
+                    key: Key('message-wrap-create-node'),
                     children: [
                       Text(
                         'Success: ',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      Text(
-                        key: Key('message-from-go'),
+                      SelectableText(
+                        key: Key('message-from-go-create-node'),
                         '$success',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
