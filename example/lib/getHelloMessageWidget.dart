@@ -1,4 +1,5 @@
 import 'package:custom_libp2p/custom_libp2p.dart';
+import 'package:custom_libp2p/models/models.dart';
 import 'package:flutter/material.dart';
 
 class GetHelloMessage extends StatefulWidget {
@@ -21,9 +22,10 @@ class _GetHelloMessageState extends State<GetHelloMessage> {
     setState(() {
       _messageFromGo = "Loading...";
     });
-    final _go_msg = await CustomLibP2P.getHelloMessage(_userName);
+    final _go_msg =
+        await CustomLibP2P.getHelloMessage(StringMessage(message: _userName));
     setState(() {
-      _messageFromGo = _go_msg;
+      _messageFromGo = _go_msg.message;
     });
   }
 

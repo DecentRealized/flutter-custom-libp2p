@@ -1,4 +1,5 @@
 import 'package:custom_libp2p/custom_libp2p.dart';
+import 'package:custom_libp2p/models/models.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -25,9 +26,9 @@ class _StopServingFile extends State<StopServingFile> {
   }
 
   void _onStopServingFile() async {
-    final _go_msg = await CustomLibP2P.stopServingFile(_fileSha265);
+    await CustomLibP2P.stopServingFile(StringMessage(message: _fileSha265));
     setState(() {
-      _messageFromGo = _go_msg;
+      _messageFromGo = true;
     });
   }
 

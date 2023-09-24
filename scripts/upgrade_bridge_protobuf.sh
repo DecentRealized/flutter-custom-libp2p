@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 #######################################################
 # Usage:                                              #
-# ./upgrade_bridge_flatbuffers.sh                     #
+# ./upgrade_bridge_protobuf.sh                     #
 #                                                     #
 # or custom version:                                  #
-# VERSION=v0.1.1 ./upgrade_bridge_flatbuffers.sh      #
+# VERSION=v0.1.1 ./upgrade_bridge_protobuf.sh      #
 # GITHUB_TOKEN Must be in environment variables       #
 #######################################################
 
 REPO="DecentRealized/custom-libp2p-mobile"
-NAME="flatbuffers_custom_libp2p_bridge_dart"
-OUTPUT_DIR="lib/model"
+NAME="protobuf_custom_libp2p_bridge_dart"
+OUTPUT_DIR="lib"
 
 #######################################################
 # you shouldn't edit below this line                  #
@@ -40,6 +40,7 @@ curl -L -o "$TMP_FILE" "$FILE_URL" -u "username:$GITHUB_TOKEN" --header 'Accept:
 
 echo "Extracting: "$TMP_FILE" to $OUTPUT_DIR"
 mkdir -p $OUTPUT_DIR
+rm -rf $OUTPUT_DIR/custom_libp2p.dart $OUTPUT_DIR/models
 tar -xz --strip-components=1 --directory=$OUTPUT_DIR --file="$TMP_FILE"
 
 echo "All updated"

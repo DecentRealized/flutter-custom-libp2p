@@ -1,4 +1,5 @@
 import 'package:custom_libp2p/custom_libp2p.dart';
+import 'package:custom_libp2p/models/models.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class GetDownloadStatus extends StatefulWidget {
 class _GetDownloadStatus extends State<GetDownloadStatus> {
   String _fileSha256 = "";
   String _peerId = "";
-  DownloadStatus _messageFromGo = DownloadStatus(false, "", "", "", 0, 0);
+  DownloadStatus _messageFromGo = DownloadStatus();
 
   void _onFileSha256Change(String value) {
     setState(() {
@@ -32,7 +33,7 @@ class _GetDownloadStatus extends State<GetDownloadStatus> {
   }
 
   void _onGetDownloadStatus() async {
-    final _go_msg = await CustomLibP2P.getDownloadStatus(_fileSha256, _peerId);
+    final _go_msg = await CustomLibP2P.getDownloadStatus(DownloadRequest());
     setState(() {
       _messageFromGo = _go_msg;
     });

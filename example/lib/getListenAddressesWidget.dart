@@ -19,7 +19,7 @@ class _GetListenAddresses extends State<GetListenAddresses> {
   void _getNodeAddressFromGo() async {
     final _go_msg = await CustomLibP2P.getListenAddresses();
     setState(() {
-      nodeAddresses = _go_msg;
+      nodeAddresses = _go_msg.message;
     });
   }
 

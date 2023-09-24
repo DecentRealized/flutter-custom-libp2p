@@ -1,4 +1,5 @@
 import 'package:custom_libp2p/custom_libp2p.dart';
+import 'package:custom_libp2p/models/models.dart';
 import 'package:flutter/material.dart';
 
 class CreateNode extends StatefulWidget {
@@ -18,9 +19,11 @@ class _CreateNode extends State<CreateNode> {
   bool _useInternet = false;
 
   void _createNodeFromGo() async {
-    final _go_msg = await CustomLibP2P.createRandomNode(_useInternet);
+    final keyPair = await CustomLibP2P.createKeyPair();
+    final _go_msg = await CustomLibP2P.createNode(CreateNodeRequest(
+        useInternet: _useInternet, privateKey: keyPair.privateKey));
     setState(() {
-      success = _go_msg;
+      success = true;
     });
   }
 

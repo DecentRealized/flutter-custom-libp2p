@@ -19,7 +19,7 @@ class _GetNodeId extends State<GetNodeId> {
   void _getNodeIdFromGo() async {
     final _go_msg = await CustomLibP2P.getNodeId();
     setState(() {
-      nodeId = _go_msg;
+      nodeId = _go_msg.message;
     });
   }
 

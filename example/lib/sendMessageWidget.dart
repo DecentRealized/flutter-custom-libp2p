@@ -1,4 +1,5 @@
 import 'package:custom_libp2p/custom_libp2p.dart';
+import 'package:custom_libp2p/models/models.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -32,9 +33,10 @@ class _SendMessage extends State<SendMessage> {
   }
 
   void _onSendMessage() async {
-    final _go_msg = await CustomLibP2P.SendMessage(_peerId, _message);
+    await CustomLibP2P.sendMessage(
+        SendMessageRequest(peerId: _peerId, message: _message));
     setState(() {
-      _messageFromGo = _go_msg;
+      _messageFromGo = true;
     });
   }
 

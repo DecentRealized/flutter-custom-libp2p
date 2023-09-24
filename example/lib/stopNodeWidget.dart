@@ -17,9 +17,9 @@ class _StopNode extends State<StopNode> {
   bool _msgFromGo = false;
 
   void _stopNodeFromGo() async {
-    final _go_msg = await CustomLibP2P.stopNode();
+    await CustomLibP2P.stopNode();
     setState(() {
-      _msgFromGo = _go_msg;
+      _msgFromGo = true;
     });
   }
 
