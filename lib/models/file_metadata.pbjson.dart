@@ -13,6 +13,19 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use fileMetadataListDescriptor instead')
+const FileMetadataList$json = {
+  '1': 'FileMetadataList',
+  '2': [
+    {'1': 'files_metadata', '3': 1, '4': 3, '5': 11, '6': '.models.FileMetadata', '10': 'filesMetadata'},
+  ],
+};
+
+/// Descriptor for `FileMetadataList`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List fileMetadataListDescriptor = $convert.base64Decode(
+    'ChBGaWxlTWV0YWRhdGFMaXN0EjsKDmZpbGVzX21ldGFkYXRhGAEgAygLMhQubW9kZWxzLkZpbG'
+    'VNZXRhZGF0YVINZmlsZXNNZXRhZGF0YQ==');
+
 @$core.Deprecated('Use fileMetadataDescriptor instead')
 const FileMetadata$json = {
   '1': 'FileMetadata',
@@ -40,15 +53,17 @@ final $typed_data.Uint8List fileMetadataDescriptor = $convert.base64Decode(
 const ClientFileInfo$json = {
   '1': 'ClientFileInfo',
   '2': [
-    {'1': 'base_path', '3': 1, '4': 1, '5': 9, '10': 'basePath'},
-    {'1': 'file_server', '3': 2, '4': 1, '5': 9, '10': 'fileServer'},
+    {'1': 'is_downloading', '3': 1, '4': 1, '5': 8, '10': 'isDownloading'},
+    {'1': 'base_path', '3': 2, '4': 1, '5': 9, '10': 'basePath'},
+    {'1': 'file_server', '3': 3, '4': 1, '5': 9, '10': 'fileServer'},
   ],
 };
 
 /// Descriptor for `ClientFileInfo`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List clientFileInfoDescriptor = $convert.base64Decode(
-    'Cg5DbGllbnRGaWxlSW5mbxIbCgliYXNlX3BhdGgYASABKAlSCGJhc2VQYXRoEh8KC2ZpbGVfc2'
-    'VydmVyGAIgASgJUgpmaWxlU2VydmVy');
+    'Cg5DbGllbnRGaWxlSW5mbxIlCg5pc19kb3dubG9hZGluZxgBIAEoCFINaXNEb3dubG9hZGluZx'
+    'IbCgliYXNlX3BhdGgYAiABKAlSCGJhc2VQYXRoEh8KC2ZpbGVfc2VydmVyGAMgASgJUgpmaWxl'
+    'U2VydmVy');
 
 @$core.Deprecated('Use serverFileInfoDescriptor instead')
 const ServerFileInfo$json = {

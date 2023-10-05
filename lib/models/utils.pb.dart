@@ -13,6 +13,56 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+class BoolMessage extends $pb.GeneratedMessage {
+  factory BoolMessage({
+    $core.bool? message,
+  }) {
+    final $result = create();
+    if (message != null) {
+      $result.message = message;
+    }
+    return $result;
+  }
+  BoolMessage._() : super();
+  factory BoolMessage.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory BoolMessage.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'BoolMessage', package: const $pb.PackageName(_omitMessageNames ? '' : 'models'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'message')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  BoolMessage clone() => BoolMessage()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  BoolMessage copyWith(void Function(BoolMessage) updates) => super.copyWith((message) => updates(message as BoolMessage)) as BoolMessage;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static BoolMessage create() => BoolMessage._();
+  BoolMessage createEmptyInstance() => create();
+  static $pb.PbList<BoolMessage> createRepeated() => $pb.PbList<BoolMessage>();
+  @$core.pragma('dart2js:noInline')
+  static BoolMessage getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BoolMessage>(create);
+  static BoolMessage? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get message => $_getBF(0);
+  @$pb.TagNumber(1)
+  set message($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasMessage() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMessage() => clearField(1);
+}
+
 class StringMessage extends $pb.GeneratedMessage {
   factory StringMessage({
     $core.String? message,

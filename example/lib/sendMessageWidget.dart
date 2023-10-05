@@ -42,69 +42,64 @@ class _SendMessage extends State<SendMessage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Center(
-      child: Card(
-          color: Colors.orangeAccent,
-          margin: const EdgeInsets.all(10),
-          child: Container(
-            padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
-            child: Column(children: [
-              Text(
-                widget.title,
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
-              Column(
-                key: Key('main-column-send-message'),
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 12),
-                  SizedBox(
-                    width: 250,
-                    height: 36,
-                    key: Key('peer-id-box'),
-                    child: TextField(
-                      key: Key('peer-id-text-field'),
-                      decoration: new InputDecoration(hintText: 'Peer Id'),
-                      onChanged: _onPeerIdChange,
-                    ),
+    return Card(
+        color: Colors.amberAccent,
+        margin: const EdgeInsets.all(10),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+          child: Column(children: [
+            Text(
+              widget.title,
+              style: Theme.of(context).textTheme.displayLarge,
+            ),
+            Column(
+              key: Key('main-column-send-message'),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 12),
+                SizedBox(
+                  width: 250,
+                  key: Key('peer-id-box'),
+                  child: TextField(
+                    key: Key('peer-id-text-field'),
+                    decoration: new InputDecoration(labelText: 'Peer Id'),
+                    onChanged: _onPeerIdChange,
                   ),
-                  SizedBox(
-                    width: 250,
-                    height: 36,
-                    key: Key('message-box'),
-                    child: TextField(
-                      key: Key('message-text-field'),
-                      decoration: new InputDecoration(hintText: 'Message'),
-                      onChanged: _onMessageChange,
-                    ),
+                ),
+                SizedBox(
+                  width: 250,
+                  key: Key('message-box'),
+                  child: TextField(
+                    key: Key('message-text-field'),
+                    decoration: new InputDecoration(labelText: 'Message'),
+                    onChanged: _onMessageChange,
                   ),
-                  SizedBox(height: 12),
-                  ElevatedButton(
-                      key: Key('submit-serve-file'),
-                      onPressed: (_peerId == "" || _message == "")
-                          ? null
-                          : _onSendMessage,
-                      child: Text('Call Go Func!')),
-                  SizedBox(height: 12),
-                  Wrap(
-                    key: Key('message-wrap-send-message'),
-                    children: [
-                      Text(
-                        'Message From Go: ',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      SelectableText(
-                        key: Key('message-from-go-send-message'),
-                        '$_messageFromGo',
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ]),
-          )),
-    ));
+                ),
+                SizedBox(height: 12),
+                ElevatedButton(
+                    key: Key('submit-serve-file'),
+                    onPressed: (_peerId == "" || _message == "")
+                        ? null
+                        : _onSendMessage,
+                    child: Text('Call Go Func!')),
+                SizedBox(height: 12),
+                Wrap(
+                  key: Key('message-wrap-send-message'),
+                  children: [
+                    Text(
+                      'Message From Go: ',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    SelectableText(
+                      key: Key('message-from-go-send-message'),
+                      '$_messageFromGo',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ]),
+        ));
   }
 }

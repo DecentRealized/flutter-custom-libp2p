@@ -25,46 +25,43 @@ class _GetNodeId extends State<GetNodeId> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Center(
-      child: Card(
-          color: Colors.lightBlueAccent,
-          margin: const EdgeInsets.all(10),
-          child: Container(
-            padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
-            child: Column(children: [
-              Text(
-                widget.title,
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
-              Column(
-                key: Key('main-column-get-node-id'),
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 12),
-                  ElevatedButton(
-                      key: Key('submit-get-node-id'),
-                      onPressed: _getNodeIdFromGo,
-                      child: Text('Call Go Func!')),
-                  SizedBox(height: 12),
-                  Wrap(
-                    key: Key('message-wrap-get-node-id'),
-                    children: [
-                      Text(
-                        'Node ID: ',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      SelectableText(
-                        key: Key('message-from-go-get-node-id'),
-                        '$nodeId',
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            ]),
-          )),
-    ));
+    return Card(
+        color: Colors.lightBlueAccent,
+        margin: const EdgeInsets.all(10),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+          child: Column(children: [
+            Text(
+              widget.title,
+              style: Theme.of(context).textTheme.displayLarge,
+            ),
+            Column(
+              key: Key('main-column-get-node-id'),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 12),
+                ElevatedButton(
+                    key: Key('submit-get-node-id'),
+                    onPressed: _getNodeIdFromGo,
+                    child: Text('Call Go Func!')),
+                SizedBox(height: 12),
+                Wrap(
+                  key: Key('message-wrap-get-node-id'),
+                  children: [
+                    Text(
+                      'Node ID: ',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    SelectableText(
+                      key: Key('message-from-go-get-node-id'),
+                      '$nodeId',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ],
+                ),
+              ],
+            )
+          ]),
+        ));
   }
 }

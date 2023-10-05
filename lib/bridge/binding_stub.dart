@@ -10,8 +10,12 @@ class Binding {
 
   Binding._internal();
 
-  Future<Uint8List> callAsync(String name, Uint8List payload) async {
-    return Uint8List.fromList(''.codeUnits);
+  Future<List<Uint8List>> callAsync(String name, Uint8List payload) async {
+    List<Uint8List> result = [
+      Uint8List.fromList(''.codeUnits),
+      Uint8List.fromList('Binding not supported'.codeUnits)
+    ];
+    return result;
   }
 
   bool isSupported() {

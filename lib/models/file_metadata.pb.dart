@@ -14,6 +14,50 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+class FileMetadataList extends $pb.GeneratedMessage {
+  factory FileMetadataList({
+    $core.Iterable<FileMetadata>? filesMetadata,
+  }) {
+    final $result = create();
+    if (filesMetadata != null) {
+      $result.filesMetadata.addAll(filesMetadata);
+    }
+    return $result;
+  }
+  FileMetadataList._() : super();
+  factory FileMetadataList.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FileMetadataList.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FileMetadataList', package: const $pb.PackageName(_omitMessageNames ? '' : 'models'), createEmptyInstance: create)
+    ..pc<FileMetadata>(1, _omitFieldNames ? '' : 'filesMetadata', $pb.PbFieldType.PM, subBuilder: FileMetadata.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  FileMetadataList clone() => FileMetadataList()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  FileMetadataList copyWith(void Function(FileMetadataList) updates) => super.copyWith((message) => updates(message as FileMetadataList)) as FileMetadataList;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static FileMetadataList create() => FileMetadataList._();
+  FileMetadataList createEmptyInstance() => create();
+  static $pb.PbList<FileMetadataList> createRepeated() => $pb.PbList<FileMetadataList>();
+  @$core.pragma('dart2js:noInline')
+  static FileMetadataList getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FileMetadataList>(create);
+  static FileMetadataList? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<FileMetadata> get filesMetadata => $_getList(0);
+}
+
 enum FileMetadata_SpecificData {
   clientFileInfo, 
   serverFileInfo, 
@@ -141,10 +185,14 @@ class FileMetadata extends $pb.GeneratedMessage {
 
 class ClientFileInfo extends $pb.GeneratedMessage {
   factory ClientFileInfo({
+    $core.bool? isDownloading,
     $core.String? basePath,
     $core.String? fileServer,
   }) {
     final $result = create();
+    if (isDownloading != null) {
+      $result.isDownloading = isDownloading;
+    }
     if (basePath != null) {
       $result.basePath = basePath;
     }
@@ -158,8 +206,9 @@ class ClientFileInfo extends $pb.GeneratedMessage {
   factory ClientFileInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ClientFileInfo', package: const $pb.PackageName(_omitMessageNames ? '' : 'models'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'basePath')
-    ..aOS(2, _omitFieldNames ? '' : 'fileServer')
+    ..aOB(1, _omitFieldNames ? '' : 'isDownloading')
+    ..aOS(2, _omitFieldNames ? '' : 'basePath')
+    ..aOS(3, _omitFieldNames ? '' : 'fileServer')
     ..hasRequiredFields = false
   ;
 
@@ -185,22 +234,31 @@ class ClientFileInfo extends $pb.GeneratedMessage {
   static ClientFileInfo? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get basePath => $_getSZ(0);
+  $core.bool get isDownloading => $_getBF(0);
   @$pb.TagNumber(1)
-  set basePath($core.String v) { $_setString(0, v); }
+  set isDownloading($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasBasePath() => $_has(0);
+  $core.bool hasIsDownloading() => $_has(0);
   @$pb.TagNumber(1)
-  void clearBasePath() => clearField(1);
+  void clearIsDownloading() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get fileServer => $_getSZ(1);
+  $core.String get basePath => $_getSZ(1);
   @$pb.TagNumber(2)
-  set fileServer($core.String v) { $_setString(1, v); }
+  set basePath($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasFileServer() => $_has(1);
+  $core.bool hasBasePath() => $_has(1);
   @$pb.TagNumber(2)
-  void clearFileServer() => clearField(2);
+  void clearBasePath() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get fileServer => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set fileServer($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasFileServer() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearFileServer() => clearField(3);
 }
 
 class ServerFileInfo extends $pb.GeneratedMessage {

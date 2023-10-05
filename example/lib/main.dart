@@ -1,13 +1,25 @@
+import 'package:custom_libp2p/custom_libp2p.dart';
 import 'package:custom_libp2p/models/models.dart';
 import 'package:flutter/material.dart';
 
+import './allowNodeWidget.dart';
+import './blockNodeWidget.dart';
+import './checkConnectionStatusWidget.dart';
+import './connectToPeerWidget.dart';
 import './createKeyPairWidget.dart';
 import './createNodeWidget.dart';
+import './getAllowedNodesWidget.dart';
+import './getBlockedNodesWidget.dart';
+import './getDatabaseDirectoryWidget.dart';
+import './getDownloadPathWidget.dart';
 import './getDownloadStatusWidget.dart';
+import './getDownloadingFilesWidget.dart';
 import './getHelloMessageWidget.dart';
 import './getListenAddressesWidget.dart';
 import './getNodeIdWidget.dart';
-import './notificationHandler.dart';
+import './getUploadingFilesWidget.dart';
+import './isAllowedNodeWidget.dart';
+import './isBlockedNodeWidget.dart';
 import './pauseDownloadWidget.dart';
 import './resumeDownloadWidget.dart';
 import './sendMessageWidget.dart';
@@ -17,8 +29,7 @@ import './stopNodeWidget.dart';
 import './stopServingFileWidget.dart';
 
 void main() {
-  // TODO: Notification Event Loop
-  NotificationHandler().start();
+  CustomLibP2P.startNotificationHandler();
   runApp(const MyApp());
 }
 
@@ -47,6 +58,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int currentPageIndex = 0;
+  bool errorHandlerIsSet = false;
   List<Warning> warnings = [];
   List<String> infos = [];
   List<Message> messages = [];
@@ -55,19 +67,32 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    NotificationHandler().addOnWarningCallback((p0) => {
+    CustomLibP2PException.addOnErrorCallback((p0) => {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                      title: const Text('CustomLibP2PException'),
+                      content: Text(p0),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text('OK'),
+                        ),
+                      ]))
+        });
+    CustomLibP2P.addOnWarningCallback((p0) => {
           setState(() {
             warnings.add(p0);
             pending[1] += 1;
           })
         });
-    NotificationHandler().addOnInfoCallback((p0) => {
+    CustomLibP2P.addOnInfoCallback((p0) => {
           setState(() {
             infos.add(p0);
             pending[2] += 1;
           })
         });
-    NotificationHandler().addOnMessageCallback((p0) => {
+    CustomLibP2P.addOnMessageCallback((p0) => {
           setState(() {
             messages.add(p0);
             pending[3] += 1;
@@ -151,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ]),
       body: <Widget>[
         SingleChildScrollView(
-            child: Column(children: [
+            child: Wrap(alignment: WrapAlignment.center, children: [
           GetHelloMessage(
             title: "Get Hello Message",
             key: Key("get-hello-message"),
@@ -160,17 +185,25 @@ class _MyHomePageState extends State<MyHomePage> {
           CreateNode(title: "Create Random Node"),
           GetNodeId(title: "Get Node ID"),
           GetListenAddresses(title: "Get Listen Addresses"),
+          ConnectToPeer(title: "Connect To Peer"),
+          CheckConnectionStatus(title: "Check Connection Status"),
           StopNode(title: "Stop Node"),
-          // AllowNode(title: "Allow Node"),
-          // IsAllowedNode(title: "Is Allowed Node"),
-          // GetAllowedNodes(title: "Get Allowed Nodes"),
-          // DenyNode(title: "Deny Node"),
+          GetDatabaseDirectory(title: "Get Database Directory"),
+          GetDownloadPath(title: "Get Download Path"),
+          AllowNode(title: "Allow Node"),
+          IsAllowedNode(title: "Is Allowed Node"),
+          GetAllowedNodes(title: "Get Allowed Nodes"),
+          BlockNode(title: "Block Node"),
+          IsBlockedNode(title: "Is Blocked Node"),
+          GetBlockedNodes(title: "Get Blocked Nodes"),
           ServeFile(title: "Serve File"),
           StopServingFile(title: "Stop Serving File"),
+          GetUploadingFiles(title: "Get Uploading Files"),
           SendMessage(title: "Send Message"),
           PauseDownload(title: "Pause Download"),
           ResumeDownload(title: "Resume Download"),
           StopDownload(title: "Stop Download"),
+          GetDownloadingFiles(title: "Get Downloading Files"),
           GetDownloadStatus(title: "Get Download Status")
         ])),
         ListView(

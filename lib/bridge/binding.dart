@@ -5,7 +5,6 @@ import 'dart:isolate';
 
 import 'package:custom_libp2p/bridge/ffi.dart';
 import 'package:custom_libp2p/bridge/isolate.dart';
-import 'package:custom_libp2p/custom_libp2p.dart';
 import 'package:ffi/ffi.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as Path;
@@ -31,13 +30,13 @@ class Binding {
     args.port.send(result);
   }
 
-  Future<Uint8List> callAsync(String name, Uint8List payload) async {
+  Future<List<Uint8List>> callAsync(String name, Uint8List payload) async {
     final port = ReceivePort();
     final args = IsolateArguments(name, payload, port.sendPort);
 
     final isolate = await Isolate.spawn(callBridge, args);
 
-    Completer<Uint8List> completer = new Completer();
+    Completer<List<Uint8List>> completer = new Completer();
 
     port.listen((message) async {
       completer.complete(message);
@@ -47,7 +46,7 @@ class Binding {
     return completer.future;
   }
 
-  Future<Uint8List> call(String name, Uint8List payload) async {
+  Future<List<Uint8List>> call(String name, Uint8List payload) async {
     final callable = _library
         .lookup<ffi.NativeFunction<call_func>>(_callFuncName)
         .asFunction<Call>();
@@ -67,21 +66,22 @@ class Binding {
     malloc.free(namePointer);
     malloc.free(payloadPointer);
 
-    handleError(result.ref.error, result);
-
-    final output =
-        result.ref.message.cast<ffi.Uint8>().asTypedList(result.ref.size);
+    final List<Uint8List> retVal = [];
+    if (result.ref.error.address != ffi.nullptr.address) {
+      retVal.add(Uint8List(0));
+      retVal.add(utf8ToUint8List(result.ref.error));
+    } else {
+      retVal.add(
+          result.ref.message.cast<ffi.Uint8>().asTypedList(result.ref.size));
+    }
     freeResult(result);
-    return output;
+    return retVal;
   }
 
-  void handleError(
-      ffi.Pointer<Utf8> error, ffi.Pointer<FFIBytesReturn> result) {
-    if (error.address != ffi.nullptr.address) {
-      var message = fromUtf8(error);
-      freeResult(result);
-      throw new CustomLibP2PException(message);
-    }
+  Uint8List utf8ToUint8List(ffi.Pointer<Utf8> text) {
+    var message = fromUtf8(text);
+    List<int> list = message.codeUnits;
+    return Uint8List.fromList(list);
   }
 
   ffi.Pointer<Utf8> toUtf8(String? text) {

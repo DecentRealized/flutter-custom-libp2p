@@ -40,7 +40,7 @@ curl -L -o "$TMP_FILE" "$FILE_URL" -u "username:$GITHUB_TOKEN" --header 'Accept:
 
 echo "Extracting: "$TMP_FILE" to $OUTPUT_DIR"
 mkdir -p $OUTPUT_DIR
-rm -rf $OUTPUT_DIR/custom_libp2p.dart $OUTPUT_DIR/models
+rm -rf $OUTPUT_DIR/custom_libp2p.dart $OUTPUT_DIR/models $OUTPUT_DIR/custom_libp2p_constants.dart
 tar -xz --strip-components=1 --directory=$OUTPUT_DIR --file="$TMP_FILE"
 
 echo "All updated"

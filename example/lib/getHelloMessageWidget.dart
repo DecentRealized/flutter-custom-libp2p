@@ -31,67 +31,63 @@ class _GetHelloMessageState extends State<GetHelloMessage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Center(
-      child: Card(
-          color: Colors.white24,
-          margin: const EdgeInsets.all(10),
-          child: Container(
-            padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
-            child: Column(children: [
-              Text(
-                widget.title,
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
-              Column(
-                key: Key('main-column-get-hello-message'),
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 12),
-                  SizedBox(
-                    width: 250,
-                    height: 36,
-                    key: Key('username-box'),
-                    child: TextField(
-                      key: Key('username-text-field'),
-                      decoration: new InputDecoration(hintText: 'Your Name'),
-                      onChanged: (value) {
-                        setState(() {
-                          _userName = value;
-                        });
-                      },
-                      onSubmitted: (value) {
-                        setState(() {
-                          _userName = value;
-                        });
-                        _getHelloMessageFromGo();
-                      },
-                    ),
+    return Card(
+        color: Colors.white24,
+        margin: const EdgeInsets.all(10),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+          child: Column(children: [
+            Text(
+              widget.title,
+              style: Theme.of(context).textTheme.displayLarge,
+            ),
+            Column(
+              key: Key('main-column-get-hello-message'),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: 12),
+                SizedBox(
+                  width: 250,
+                  key: Key('username-box'),
+                  child: TextField(
+                    key: Key('username-text-field'),
+                    decoration: new InputDecoration(labelText: 'Your Name'),
+                    onChanged: (value) {
+                      setState(() {
+                        _userName = value;
+                      });
+                    },
+                    onSubmitted: (value) {
+                      setState(() {
+                        _userName = value;
+                      });
+                      _getHelloMessageFromGo();
+                    },
                   ),
-                  SizedBox(height: 12),
-                  ElevatedButton(
-                      key: Key('submit-get-hello-message'),
-                      onPressed: _getHelloMessageFromGo,
-                      child: Text('Call Go Func!')),
-                  SizedBox(height: 12),
-                  Wrap(
-                    key: Key('message-wrap-get-hello-message'),
-                    children: [
-                      Text(
-                        'Message From Go: ',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      SelectableText(
-                        key: Key('message-from-go-get-hello-message'),
-                        '$_messageFromGo',
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                    ],
-                  )
-                ],
-              )
-            ]),
-          )),
-    ));
+                ),
+                SizedBox(height: 12),
+                ElevatedButton(
+                    key: Key('submit-get-hello-message'),
+                    onPressed: _getHelloMessageFromGo,
+                    child: Text('Call Go Func!')),
+                SizedBox(height: 12),
+                Wrap(
+                  key: Key('message-wrap-get-hello-message'),
+                  children: [
+                    Text(
+                      'Message From Go: ',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    SelectableText(
+                      key: Key('message-from-go-get-hello-message'),
+                      '$_messageFromGo',
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  ],
+                )
+              ],
+            )
+          ]),
+        ));
   }
 }
