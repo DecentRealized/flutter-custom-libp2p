@@ -54,6 +54,16 @@ class _CheckConnectionStatus extends State<CheckConnectionStatus> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(height: 12),
+                SizedBox(
+                  width: 300,
+                  child: TextField(
+                      key: Key('peer-id-check-connection-status'),
+                      onChanged: _onPeerIdChange,
+                      decoration: const InputDecoration(
+                        labelText: 'Peer ID',
+                      )),
+                ),
+                SizedBox(height: 12),
                 ElevatedButton(
                   key: Key('submit-check-connection-status'),
                   onPressed: _onCheckConnectionStatus,

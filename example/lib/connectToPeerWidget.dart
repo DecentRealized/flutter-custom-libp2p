@@ -71,6 +71,11 @@ class _ConnectToPeerState extends State<ConnectToPeer> {
                           ),
                         ),
                         SizedBox(height: 12),
+                        ElevatedButton(
+                          key: Key('connect-to-peer'),
+                          onPressed: _onConnectToPeer,
+                          child: const Text('Call Go Func!'),
+                        ),
                         Wrap(children: [
                           Text(
                             'Success: ',
